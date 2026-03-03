@@ -63,12 +63,10 @@ public class AuthService {
     }
     
     public ResponseAuthDto refreshToken(RequestRefreshTokenDto requestRefreshTokenDto){
-      
-      
       RefreshToken verifyToken = refreshTokenService.verifyToken(requestRefreshTokenDto.getToken());
       String getUsername = verifyToken.getUser().getUsername();
-      ResponseAuthDto dto  = new ResponseAuthDto();
       RefreshToken CreateRefreshtoken = refreshTokenService.createRefreshToken(getUsername);
+      ResponseAuthDto dto  = new ResponseAuthDto();
       dto.setAccessToken(jwtUtils.GenerateToken(getUsername));
       dto.setRefreshToken(CreateRefreshtoken.getToken());
       return dto;

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.dd.test.Dto.RequestProductDto;
 import com.dd.test.Dto.ResponseProductDto;
 import com.dd.test.Entity.Product;
+import com.dd.test.Exceptions.ProductNotFoundException;
 import com.dd.test.Repository.ProductRepository;
 
 @Service
@@ -36,7 +37,7 @@ public class ProductServiceImpl implements ProductService {
    @Override
    public ResponseProductDto getProductById(Long id) {
       var product=this.productRepository.findById(id)
-      .orElseThrow(()-> new RuntimeException("product is not found"));
+      .orElseThrow(()-> new ProductNotFoundException("product is not found"));
       ResponseProductDto dto = new ResponseProductDto();
       dto.setId(product.getId());
       dto.setName(product.getName());
@@ -64,14 +65,14 @@ public class ProductServiceImpl implements ProductService {
    @Override
    public String DeleteProduct(Long id) {
        var product=this.productRepository.findById(id)
-      .orElseThrow(()-> new RuntimeException("product is not found"));
+      .orElseThrow(()-> new ProductNotFoundException("product is not found"));
       this.productRepository.delete(product);
       return "product deleted";
    }
 
    @Override
    public ResponseProductDto UpdateProduct(Long id,RequestProductDto requestProductDto) {
-      Product currentProduct =  this.productRepository.findById(id).orElseThrow(() -> new RuntimeException("produt is not found"));
+      Product currentProduct =  this.productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("produt is not found"));
       currentProduct.setName(requestProductDto.getName());
       currentProduct.setDescription(requestProductDto.getDescription());
       currentProduct.setPrice(requestProductDto.getPrice());

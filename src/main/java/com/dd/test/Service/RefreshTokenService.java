@@ -46,7 +46,7 @@ public class RefreshTokenService {
     }
 
     private void saveToken(User user,RefreshToken refreshToken){
-         user.setRefreshToken(refreshToken);
+        user.setRefreshToken(refreshToken);
         refreshToken.setUser(user);
         userRepository.save(user);
     }
