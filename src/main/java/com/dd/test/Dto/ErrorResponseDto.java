@@ -1,12 +1,7 @@
 package com.dd.test.Dto;
-
-import java.lang.reflect.Array;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.validation.ObjectError;
-
 import lombok.Getter;
 import lombok.Setter;
 
