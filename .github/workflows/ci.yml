@@ -1,0 +1,20 @@
+name: Spring Boot CI
+
+on: push
+
+jobs:
+    build:
+        runs-on: ubunutu-latest
+        
+        steps:
+            - name: Checkout code
+              uses: action/checkout@v4
+
+            - name: Set up JDK 17
+              uses: action/setup-java@v4
+              with:
+                distribution: 'temurin'
+                java-version: '17'
+                cache: 'maven'
+            - name: Build and run tests
+              run: mvn clean verify 
