@@ -42,7 +42,7 @@ public class ProductServiceImpl implements ProductService {
       dto.setId(product.getId());
       dto.setName(product.getName());
       dto.setDescription(product.getDescription());
-      dto.setPrice(product.getPrice());
+      dto.setPrice(product.getPric());
       return dto;
    }
 
