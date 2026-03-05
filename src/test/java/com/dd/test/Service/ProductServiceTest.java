@@ -5,12 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 import java.util.List;
 import java.util.Optional;
-
-import org.aspectj.lang.annotation.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -109,10 +105,6 @@ public class ProductServiceTest {
     }
     @Test
     void UpdateProductShouldThrowProductNotFound(){
-        RequestProductDto createProduct = new RequestProductDto();
-        createProduct.setName("nothing");
-        createProduct.setDescription("description");
-        createProduct.setPrice(9.99);
         when(productRepository.findById(4L)).thenReturn(Optional.empty());
         assertThrows(ProductNotFoundException.class, ()->productService.UpdateProduct(4L, any()));
         
