@@ -29,7 +29,15 @@ public class Product {
 
     @Column(nullable = false)
     private double Price;
+    
+    public Product(){}
 
+    public Product(Long id,String Name,String description,double Price){
+        this.Id=id;
+        this.Name=Name;
+        this.description=description;
+        this.Price=Price;
+    }
     public long getId() {
         return Id;
     }
