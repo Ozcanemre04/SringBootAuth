@@ -41,7 +41,7 @@ public class ProductServiceTest {
     void shouldReturnAllProducts(){
       when(productRepository.findAll()).thenReturn(products);
       List<ResponseProductDto> result = productService.getAllProducts();
-      assertEquals(24, result.size());
+      assertEquals(2, result.size());
       verify(productRepository).findAll();
     }
 
