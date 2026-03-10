@@ -1,11 +1,8 @@
 package com.dd.test.Controller;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
-import java.util.Optional;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -18,10 +15,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.dd.test.Configuration.JwtUtils;
 import com.dd.test.Dto.RequestProductDto;
 import com.dd.test.Dto.ResponseProductDto;
-import com.dd.test.Entity.Product;
 import com.dd.test.Exceptions.ProductNotFoundException;
 import com.dd.test.Service.CustomUserDetailsService;
-import com.dd.test.Service.ProductService;
 import com.dd.test.Service.ProductServiceImpl;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
